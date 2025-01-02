@@ -1,0 +1,36 @@
+name: Deploy Hakyll Website
+
+on:
+  push:
+    branches:
+      - main # Trigger the workflow on pushes to the main branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Haskell environment with Stack
+      - name: Set up Haskell with Stack
+        uses: haskell/actions/setup@v1
+        with:
+          stack-version: "latest"
+          enable-stack: true
+
+      # Step 3: Install dependencies and build the site
+      - name: Install dependencies and build site
+        run: |
+          stack setup
+          stack build
+          stack exec site build
+
+      # Step 4: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site # Directory containing the built site
