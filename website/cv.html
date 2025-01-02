@@ -1,0 +1,202 @@
+---
+title: "Curriculum Vitae"
+inlineCSS: >-
+  .line > span:last-child {
+    float: right;
+  }
+  .header {
+    text-align: center;
+  }
+  hr {
+    margin: 2em 0;
+  }
+  ul {
+    list-style: none;
+    padding-left: 2ch;
+  }
+  ul > li::before {
+    content: '* ';
+    font-weight: 600;
+  }
+  li > * {
+    display: inline;
+  }
+  ul {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .box-link {
+    color: var(--links);
+    background-color: color-mix(in srgb, var(--links) 20%, transparent);
+    font-weight: 200;
+    text-decoration: none;
+    padding: 0px 4px;
+    border-radius: 4px;
+  }
+---
+
+<!-- Education -->
+<div>
+  <h2 class="header">Education</h2>
+
+  <div id="UPenn">
+    <div class="line">
+      <span><b>Uppsala University (Sweden)</b></span>
+      <span><b>2024-Present</b></span>
+    </div>
+    <div class="line">
+      PhD in Computer Science
+    </div>
+    <div class="line">
+      Advisor: Prof. Eva Darulova
+    </div><br>
+  </div>
+
+  <div id="EPFLM">
+    <div class="line">
+      <span><b>EPFL (Switzerland)</b></span>
+      <span><b>2021-2024</b></span>
+    </div>
+    <div class="line">
+      MSc in Computer Science, Specialization: Computer Science Theory
+    </div>
+    <div class="line">
+      Thesis: Inductive Datatypes Mechanized in Set Theory
+    </div>
+    <div class="line">
+      Advisor: Prof. Viktor Kuncak
+    </div><br>
+  </div>
+
+  <div id="EPFLB">
+    <div class="line">
+      <span><b>EPFL (Switzerland)</b></span>
+      <span><b>2018-2022</b></span>
+    </div>
+    <div class="line">
+      BSc in Communication Systems
+    </div>
+    <div class="line">
+      Thesis: Formal Verification of Network Calculus
+    </div>
+    <div class="line">
+      Advisor: Prof. Jean-Yves Le Boudec
+    </div><br>
+  </div>
+</div>
+
+<!-- Publications -->
+<hr>
+<div>
+  <h2 class="header">Publications</h2>
+
+  <article class="publication">
+    <header>
+      <span class="series">[ITP'24]</span>
+      <cite class="title">
+        <a href="https://doi.org/10.4230/LIPIcs.ITP.2024.18">Mechanized HOL Reasoning in Set Theory </a>
+      </cite>
+    </header>
+    <div class="metadata">
+      <div class="authors">
+        <span class="author hg">Simon Guilloud</span>, 
+        <span class="author">Sankalp Gambhir</span>, 
+        <span class="author">Andrea Gilot</span> and
+        <span class="author">Viktor Kuncak</span> 
+      </div>
+    </div>
+    <details>
+      <summary>Abstract</summary>
+      <div  class="abstract">
+        We present a mechanized embedding of higher-order logic (HOL) and algebraic data types (ADTs) into first-order logic with ZFC axioms. Our approach interprets types as sets, with function (arrow) types coinciding with set-theoretic function spaces. We assume traditional FOL syntax without notation for term-level binders. To embed λ-terms, we define a notion of context, defining the closure of all abstractions occuring inside a term. We implement the embedding in the Lisa proof assistant for schematic first-order logic and its library based on axiomatic set theory (presented at ITP 2023). We show how to implement type checking and the proof steps of HOL Light as proof-producing tactics in Lisa. The embedded HOL theorems and proofs are interoperable with the existing Lisa library. This yields a form of soft type system supporting top-level polymorphism and ADTs within set theory. The approach offers tools for Lisa users to carry HOL-style proofs within set theory. It also enables the import of HOL Light theorem statements into Lisa, as well as the replay of small HOL Light kernel proofs.
+      </div>
+    </details>
+  </article>
+
+<!-- Work Experience -->
+<hr>
+<div>
+  <h2 class="header">Work Experience</h2>
+
+  <div>
+    <div class="line">
+      <span><b>Research Intern</b>, <i>LARA (EPFL)</i></span>
+      <span style="float: right"><b>July 2024</b></span>
+    </div>
+    Supervised by Prof. Viktor Kuncak<br>
+    <p>
+      Continued my Master thesis, a mechanization of inductive datatypes inside a first order logic theorem prover equipped with the axioms of set theory.
+    </p>
+  </div>
+
+  <div>
+    <div class="line">
+      <span><b>Research Intern</b>, <i>Digital Asset</i></span>
+      <span><b>March-August 2023</b></span>
+    </div>
+    Supervised by Dr. Andreas Lochbihler<br>
+    <p>
+      Proof formalization and mechanization of an optimization of a decentralized protocol adopted by financial institutions including Deutsche Börse, HKMA, Goldman Sachs, and BNP Paribas.
+    </p>
+  </div>
+
+  <div>
+    <div class="line">
+      <span><b>Software Intern</b>, <i>IOxOS Technologies</i></span>
+      <span><b>July-August 2019</b></span>
+    </div>
+    <p>
+      Developpement of a graphical interface in Java and a client-server architecture in C to drive a data acquisition
+      system.
+    </p>
+  </div>
+
+<!-- Teaching -->
+
+<hr>
+<div>
+  <h2 class="header">Teaching</h2>
+
+  <div id="teaching_uppsala">
+    I have served as a Teaching Assistant for the following classes at Uppsala University:
+    <ul>
+      <li>
+        Programming (2025)
+      </li>
+      <li>
+        Introduction to Programming and Datastructures (2024)
+      </li>
+    </ul>
+
+    <br>
+
+    I have served as a Student Assistant for the following classes at EPFL:
+    <ul>
+      <li>CS-550 Formal Verification (2022, 2023)</li>
+      <li>CS-251 Theory of Computation (2022)</li>
+      <li>CS-233 Introduction to Machine Learning (2021, 2022)</li>
+      <li>EE-205 Signals and Systems (2021)</li>
+      <li>CS-173 Digital System Design (2020)</li>
+    </ul>
+  </div>
+</div>
+
+
+
+<!-- Past Projects -->
+<hr>
+<div>
+  <h2 class="header">Past Projects</h2>
+
+  <div>
+    <div class="line">
+      <span><b>Verified System F interepreter in Stainless</b></span>
+      <span><a href="https://github.com/Ef55/stainless-stlc", class="box-link">Repository</a></span>
+    </div>
+    <p>
+      Verified typecher and interpreter for System F in Scala. The software is verified with <a href="https://github.com/epfl-lara/stainless">Stainless</a>, a verification framework for Scala.
+      Properties of the calculus such as progress, preservation and type derivation uniqueness are proved.
+      This used to be the second largest project ever verified with Stainless. It is still used as a benchmark, as part of <a href="https://github.com/epfl-lara/bolts/">Bolts</a>.
+    </p>
+  </div>
+</div>
