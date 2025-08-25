@@ -1,0 +1,89 @@
+education:
+  - name: Uppsala University
+    country: Sweden
+    date: 2024-Present
+    title: PhD in Computer Science
+    advisor: Prof. Eva Darulova
+  - name: EPFL
+    country: Switzerland
+    date: 2021-2024
+    title: "MSc in Computer Science, Specialization: Computer Science Theory"
+    thesis: Inductive Datatypes Mechanized in Set Theory
+    advisor: Prof. Viktor Kuncak
+  - name: EPFL
+    country: Switzerland
+    date: 2018-2022
+    title: BSc in Communication Systems
+    thesis: Formal Verification of Network Calculus
+    advisor: Prof. Jean-Yves Le Boudec
+
+work:
+  - position: Research Intern
+    company: LARA (EPFL)
+    supervisor: Prof. Viktor Kuncak
+    date: July 2024
+    description: Continued my Master thesis, a mechanization of inductive datatypes inside a first order logic theorem prover equipped with the axioms of set theory.
+  - position: Research Intern
+    company: Digital Asset
+    supervisor: Dr. Andreas Lochbihler
+    date: March-August 2023
+    description: Proof formalization and mechanization of an optimization of a decentralized protocol adopted by financial institutions including Deutsche Börse, HKMA, Goldman Sachs, and BNP Paribas.
+  - position: Software Intern
+    company: IOxOS Technologies
+    date: July-August 2019
+    description: Developpement of a graphical interface in Java and a client-server architecture in C to drive a data acquisition system.
+
+theses:
+  - category: master
+    list: 
+    - student: Mario Tannous
+      title: Specification Inference for Scala and Stainless
+  - category: bachelor
+    list:
+    - student: Carl Martinsson
+      title: "Code Maintainability and Data Structures in Energy-Aware Software: An Empirical GitHub Study"
+      cosupervisor: jennifer_gross
+    - student: Samuel Sverker
+      title: "Energy-Aware Software Development in Operating Systems: A Thematic Analysis of OS-Level Optimization Techniques"
+      cosupervisor: jennifer_gross
+    - student: Valentin Hassinen
+      title: "Field Testing Stainless by Verifying Daisy's AST Library"
+
+teaching:
+  - position: Teaching Assistant
+    institution: Uppsala University
+    courses:
+      - code: 1DL201
+        title: Program Design and Data Structures
+        years: 
+          - 2024
+          - 2025
+      - code: 1DL042
+        title: Programming
+        years: 
+          - 2025
+  - position: Student Assistant
+    institution: EPFL
+    courses:
+      - code: CS-550
+        title: Formal Verification
+        years: 
+          - 2022
+          - 2023
+      - code: CS-251
+        title: Theory of Computation
+        years: 
+          - 2022
+      - code: CS-233
+        title: Introduction to Machine Learning
+        years: 
+          - 2021
+          - 2022
+      - code: EE-205
+        title: Signals and Systems
+        years: 
+          - 2021
+      - code: CS-173
+        title: Digital System Design
+        years: 
+          - 2020

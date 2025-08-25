@@ -1,6 +1,0 @@
----
-title: Master thesis
----
-
-# Links
-
