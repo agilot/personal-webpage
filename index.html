@@ -1,6 +1,12 @@
 ---
 layout: default
-title: About
+inlineCSS: >-
+  .card {
+    padding: 3rem 3rem 1rem;
+  }
+  .socials {
+    display: flex;
+  }
 ---
 
 <style>
@@ -12,26 +18,61 @@ title: About
     }
 </style>
 
-<div class="container">
-    <div class="column">
-        <img src="images/profile_picture.jpg" alt="A picture of me" width="auto" height="300">
-    </div>
-    <div class="column">
-        <b> Email</b>: andrea.gilot <i>at</i> it.uu.se
-        <br><br>
-        <b> Office</b>: <br>
-            room 105239,<br>
-            Lägerhyddsvägen 1, house 10 <br>
-            752 37 Uppsala, Sweden <br>
-    </div>
-</div>
+<div class="card">
+    <div class="container">
+        <div class="column">
+            <img src="images/profile-picture-circle.png" alt="A picture of me" width="auto" height="300">
+        </div>
+        <div class="column" style="margin-left: 1rem; margin-top: 1.5rem;">
+            <b> Office</b>:
+            <ul style="list-style-type: none; padding-left: 1rem; margin-top: 0rem; padding-top: 0;">
+                <li>room 105239,</li>
+                <li>Lägerhyddsvägen 1, house 10</li>
+                <li>752 37 Uppsala, Sweden</li>
+            </ul>
+            <b>Email</b>: andrea.gilot <i>at</i> it.uu.se
+            <br><br>
+            <b>Links</b>:
+            <ul style="list-style-type: none; padding-left: 1rem; margin-top: 0.5rem; padding-top: 0;">
+                    <li>
+                        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                        <a href="mailto:andrea.gilot@it.uu.se">Email</a>
+                    </li>
+                    <li>
+                        <i class="fa-brands fa-github" aria-hidden="true"></i>
+                        <a href="https://github.com/agilot" target="_blank">GitHub</a>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-feather" aria-hidden="true"></i>
+                        <a href="https://bsky.app/profile/agilot" target="_blank">Bluesky</a>
+                    </li>
+                    <li>
+                        <i class="fa-brands fa-orcid" aria-hidden="true"></i>
+                        <a href="https://orcid.org/0009-0006-4463-9414" target="_blank">ORCID</a>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+                        <a href="https://scholar.google.com/citations?user=agilot" target="_blank">Google Scholar</a>
+                    </li>
 
-<div>
-<p>
-    I am a PhD student at the <a href="https://www.uu.se/en/department/information-technology">Department of Information Technology</a> at <a href="https://www.uu.se/">Uppsala University</a>. My advisor is <a href="https://malyzajko.github.io/">Eva Darulova</a>. 
-    I am broadly interested in programming languages, software verification, and software engineering. 
-    At present, my research focuses on the verification of numerical code.
-    I previously studied Theoretical Computer Science at <a href="https://www.epfl.ch/schools/ic/">EPFL</a>.
-    My master thesis was on the embedding of inductive datatypes in first order set theory.
-</p>
+                </ul>
+            <!-- Font Awesome CDN -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+        </div>
+    </div>
+
+    <div>
+    <p>
+        I am a PhD student at the <a href="https://www.uu.se/en/department/information-technology">Department of Information Technology</a> at <a href="https://www.uu.se/">Uppsala University</a>. My advisor is <a href="https://malyzajko.github.io/">Eva Darulova</a>. 
+        I am broadly interested in programming languages, software verification, and software engineering. 
+        At present, my research focuses on the verification of numerical code.
+        I previously studied Theoretical Computer Science at <a href="https://www.epfl.ch/schools/ic/">EPFL</a>.
+        My master thesis was on the embedding of inductive datatypes in first order set theory.
+    </p>
+    </div>
+    <div>
+
+    </div>
+    
 </div>

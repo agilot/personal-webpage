@@ -4,18 +4,21 @@ education:
     date: 2024-Present
     title: PhD in Computer Science
     advisor: Prof. Eva Darulova
+    logo: uppsala-favicon.png
   - name: EPFL
     country: Switzerland
     date: 2021-2024
     title: "MSc in Computer Science, Specialization: Computer Science Theory"
     thesis: Inductive Datatypes Mechanized in Set Theory
     advisor: Prof. Viktor Kuncak
+    logo: epfl-favicon.png
   - name: EPFL
     country: Switzerland
     date: 2018-2022
     title: BSc in Communication Systems
     thesis: Formal Verification of Network Calculus
     advisor: Prof. Jean-Yves Le Boudec
+    logo: epfl-favicon.png
 
 work:
   - position: Research Intern
@@ -23,15 +26,18 @@ work:
     supervisor: Prof. Viktor Kuncak
     date: July 2024
     description: Continued my Master thesis, a mechanization of inductive datatypes inside a first order logic theorem prover equipped with the axioms of set theory.
+    logo: epfl-favicon.png
   - position: Research Intern
     company: Digital Asset
     supervisor: Dr. Andreas Lochbihler
     date: March-August 2023
     description: Proof formalization and mechanization of an optimization of a decentralized protocol adopted by financial institutions including Deutsche Börse, HKMA, Goldman Sachs, and BNP Paribas.
+    logo: da-favicon.png
   - position: Software Intern
     company: IOxOS Technologies
     date: July-August 2019
     description: Developpement of a graphical interface in Java and a client-server architecture in C to drive a data acquisition system.
+    logo: ioxos-favicon.png
 
 theses:
   - category: master

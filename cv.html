@@ -1,15 +1,11 @@
 ---
 layout: default
-title: "Curriculum Vitae"
 inlineCSS: >-
   .line > span:last-child {
     float: right;
   }
   .header {
     text-align: center;
-  }
-  hr {
-    margin: 2em 0;
   }
   ul {
     list-style: none;
@@ -37,117 +33,138 @@ inlineCSS: >-
 ---
 
 <!-- Education -->
-<div>
+<div class="card">
   <h2 class="header">Education</h2>
 
   {% for position in site.data.cv.education %}
-    <div class="education">
-      <div class="line">
-        <span><b>{{ position.name }} ({{ position.country }})</b></span>
-        <span><b>{{ position.date }}</b></span>
-      </div>
-      <div class="line">
-        {{ position.title }}
-      </div>
-      {% if position.thesis %}
+    <div class="line-with-icon">
+      <img src="/images/favicons/{{ position.logo }}" class="favicon" alt="{{ position.name }} Logo">
+      <div class="entry">
         <div class="line">
-          Thesis: {{ position.thesis }}
+          <span><b>{{ position.name }} ({{ position.country }})</b></span>
+          <span><b>{{ position.date }}</b></span>
         </div>
-      {% endif %}
-      <div class="line">
-        Advisor: {{ position.advisor }}
-      </div><br>
+        <div class="line">
+          {{ position.title }}
+        </div>
+        {% if position.thesis %}
+          <div class="line">
+            Thesis: {{ position.thesis }}
+          </div>
+        {% endif %}
+        <div class="line">
+          Advisor: {{ position.advisor }}
+        </div><br>
+      </div>
     </div>
   {% endfor %}
 </div>
 
 <!-- Publications -->
-<hr>
-<div>
+<br>
+<div class="card">
   <h2 class="header">Publications</h2>
 
   <article class="publication">
-    <span class="series">[ITP'24]</span>
-    <cite class="title">
-      <a href="https://doi.org/10.4230/LIPIcs.ITP.2024.18">Mechanized HOL Reasoning in Set Theory </a>
-    </cite>
-    <div class="metadata">
-      <div class="authors">
-        <span class="author hg">Simon Guilloud</span>, 
-        <span class="author">Sankalp Gambhir</span>, 
-        <span class="author">Andrea Gilot</span> and
-        <span class="author">Viktor Kuncak</span> 
-      </div>
-    </div>
-    <details>
-      <summary>Abstract</summary>
-      <div  class="abstract">
-        We present a mechanized embedding of higher-order logic (HOL) and algebraic data types (ADTs) into first-order logic with ZFC axioms. Our approach interprets types as sets, with function (arrow) types coinciding with set-theoretic function spaces. We assume traditional FOL syntax without notation for term-level binders. To embed λ-terms, we define a notion of context, defining the closure of all abstractions occuring inside a term. We implement the embedding in the Lisa proof assistant for schematic first-order logic and its library based on axiomatic set theory (presented at ITP 2023). We show how to implement type checking and the proof steps of HOL Light as proof-producing tactics in Lisa. The embedded HOL theorems and proofs are interoperable with the existing Lisa library. This yields a form of soft type system supporting top-level polymorphism and ADTs within set theory. The approach offers tools for Lisa users to carry HOL-style proofs within set theory. It also enables the import of HOL Light theorem statements into Lisa, as well as the replay of small HOL Light kernel proofs.
-      </div>
-    </details>
+    {% for year in site.data.publications %}
+      {% for pub in year[1] %}
+        <span class="series">[{{ pub.acronym }}]</span>
+        <cite class="title">
+          <a href="{{ pub.DOI }}">{{ pub.title }}</a>
+        </cite>
+        <div class="metadata">
+          {% assign formatted_authors = "" %}
+            {% for author in pub.authors %}
+              {% if author == "Andrea Gilot" %}
+                {% assign formatted_authors = formatted_authors | append: "<b>" | append: author | append: "</b>" %}
+              {% else %}
+                {% assign formatted_authors = formatted_authors | append: author %}
+              {% endif %}
+              {% unless forloop.last %}
+                {% assign formatted_authors = formatted_authors | append: "||" %}
+              {% endunless %}
+            {% endfor %}
+
+            <div class="authors">
+              {{ formatted_authors | split: "||" | array_to_sentence_string }}
+            </div>
+        </div>
+        <details>
+          <summary>Abstract</summary>
+          <div  class="abstract">
+            {{ pub.abstract }}
+          </div>
+        </details>
+        {% endfor %}
+      {% endfor %}
   </article>
 </div>
 
 <!-- Work Experience -->
-<hr>
-<div>
+<br>
+<div class="card">
   <h2 class="header">Work Experience</h2>
   {% for position in site.data.cv.work %}
-  <div>
-    <div class="line">
-      <span><b>{{ position.position }}</b>, <i>{{ position.company }}</i></span>
-      <span style="float: right"><b>{{ position.date }}</b></span>
-    </div>
-    {% if position.supervisor %}
-    Supervised by {{ position.supervisor }}<br>
-    {% endif %}
-    <p>
-      {{ position.description }}
-    </p>
+    <div class="line-with-icon">
+      <img class="favicon" src="/images/favicons/{{ position.logo }}" alt="{{ position.name }} Logo">
+      <div class="entry">
+        <div class="line">
+          <span><b>{{ position.position }}</b>, <i>{{ position.company }}</i></span>
+          <span style="float: right"><b>{{ position.date }}</b></span>
+        </div>
+        {% if position.supervisor %}
+        Supervised by {{ position.supervisor }}<br>
+        {% endif %}
+        <p>
+          {{ position.description }}
+        </p>
+      </div>
   </div>
   {% endfor %}
 </div>
 
 <!-- Teaching -->
 
-<hr>
-  <h2 class="header">Teaching</h2>
+<br>
+  <div class="card">
+    <h2 class="header">Teaching</h2>
 
-  {% for degree in site.data.cv.theses %}
-  I am supervising / have supervised the following {{ degree.category}} theses:
-  <ul>
-    {% for thesis in degree.list %}
-    <li>
-      {{ thesis.student }} - {{ thesis.title }}
-      {% if thesis.cosupervisor %}
-        (co-supervised with
-            {% assign p = site.data.people[thesis.cosupervisor] %}
-            {%- if p.webpage -%}
-              <a href="{{ p.webpage }}">{{ p.name }}</a>
-            {%- else -%}
-              {{ p.name }}
-            {%- endif -%}
-        )
-      {% endif %}
-    </li>
+    {% for degree in site.data.cv.theses %}
+    I am supervising / have supervised the following {{ degree.category}} theses:
+    <ul>
+      {% for thesis in degree.list %}
+      <li>
+        {{ thesis.student }} - {{ thesis.title }}
+        {% if thesis.cosupervisor %}
+          (co-supervised with
+              {% assign p = site.data.people[thesis.cosupervisor] %}
+              {%- if p.webpage -%}
+                <a href="{{ p.webpage }}">{{ p.name }}</a>
+              {%- else -%}
+                {{ p.name }}
+              {%- endif -%}
+          )
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    <br>
     {% endfor %}
-  </ul>
-  <br>
-  {% endfor %}
-    
+      
 
-  {% for position in site.data.cv.teaching %}
-  I have served as a {{ position.position }} for the following classes at {{ position.institution }}:
-  <ul>
-    {% for course in position.courses %}
-    <li>{{ course.code }} {{ course.title }} ({{ course.years | join: ", " }})</li>
+    {% for position in site.data.cv.teaching %}
+    I have served as a {{ position.position }} for the following classes at {{ position.institution }}:
+    <ul>
+      {% for course in position.courses %}
+      <li>{{ course.code }} {{ course.title }} ({{ course.years | join: ", " }})</li>
+      {% endfor %}
+    </ul>
+    <br>
     {% endfor %}
-  </ul>
-  <br>
-  {% endfor %}
+  </div>
 
 <!-- Past Projects -->
-<hr>
+<!-- <br>
 <div>
   <h2 class="header">Past Projects</h2>
 
@@ -161,4 +178,4 @@ inlineCSS: >-
       Properties of the calculus such as progress, preservation and type derivation uniqueness are proved.
       This used to be the second largest project ever verified with Stainless. It is still used as a benchmark, as part of <a href="https://github.com/epfl-lara/bolts/">Bolts</a>.
     </p>
-  </div>
+  </div> -->

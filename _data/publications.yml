@@ -1,0 +1,12 @@
+2024:
+  - title: Mechanized HOL Reasoning in Set Theory
+    venue: International Conference on Interactive Theorem Proving (ITP)
+    acronym: ITP'24
+    authors:
+        - Simon Guilloud
+        - Sankalp Gambhir
+        - Andrea Gilot
+        - Viktor Kuncak
+    abstract: We present a mechanized embedding of higher-order logic (HOL) and algebraic data types (ADTs) into first-order logic with ZFC axioms. Our approach interprets types as sets, with function (arrow) types coinciding with set-theoretic function spaces. We assume traditional FOL syntax without notation for term-level binders. To embed λ-terms, we define a notion of context, defining the closure of all abstractions occuring inside a term. We implement the embedding in the Lisa proof assistant for schematic first-order logic and its library based on axiomatic set theory (presented at ITP 2023). We show how to implement type checking and the proof steps of HOL Light as proof-producing tactics in Lisa. The embedded HOL theorems and proofs are interoperable with the existing Lisa library. This yields a form of soft type system supporting top-level polymorphism and ADTs within set theory. The approach offers tools for Lisa users to carry HOL-style proofs within set theory. It also enables the import of HOL Light theorem statements into Lisa, as well as the replay of small HOL Light kernel proofs.
+    DOI: https://doi.org/10.4230/LIPIcs.ITP.2024.18
+    PDF: https://arxiv.org/pdf/2403.13403

@@ -1,0 +1,161 @@
+---
+layout: default
+inlineCSS: >-
+
+  .year {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .card {
+    padding: 1.5rem 2.2rem 1.5rem;
+  }
+  .pub-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .pub-authors {
+    font-size: 1.2rem;
+  }
+
+  .pub-venue {
+    font-style: italic;
+    font-size: 1.3rem;
+  }
+  .pub-year {
+    font-size: 1.3rem;
+  }
+  .pub-abstract {
+    margin-top: 0.2rem;
+    font-size: 1.3rem;
+    color: grey;
+  }
+
+  .show-more {
+    background: none; 
+    border: 0; 
+    padding: 0;
+    font-size: 1.3rem;
+    text-decoration: none; 
+    cursor: pointer;
+    font-family: var(--font-sans);
+    }
+
+  .show-more:hover {
+    color: grey;
+  }
+
+  .button {
+    display: flex;
+    gap: 0.6rem;
+    padding: 0.5rem 0.8rem;
+    border: 1px solid  var(--color-border);
+    border-radius: 8px;
+    background-color: white;
+    color: var(--color-link);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .button:hover {
+    background-color: #e0e0e0; /* slightly grey */
+    color: #000;
+  }
+---
+{% for year in site.data.publications %}
+  <div class="year">{{ year[0] }}</div>
+  {% for pub in year[1] %}
+      <div class="card">
+      <div class="pub-title">{{ pub.title }}</div>
+          {% for author in pub.authors %}
+            {% if author == "Andrea Gilot" %}
+              {% assign formatted_authors = formatted_authors | append: "<b>" | append: author | append: "</b>" %}
+            {% else %}
+              {% assign formatted_authors = formatted_authors | append: author %}
+            {% endif %}
+            {% unless forloop.last %}
+              {% assign formatted_authors = formatted_authors | append: "||" %}
+            {% endunless %}
+          {% endfor %}
+        <div class="pub-authors">
+          {{ formatted_authors | split: "||" | array_to_sentence_string }}
+        </div>
+        <div style="display: flex; gap: 0.2rem;">
+          <div class="pub-venue">
+            {{ pub.venue }} 
+          </div>
+          <div class="pub-year">
+            {{ year[0] }}
+          </div>
+        </div>
+        <div class="pub-abstract js-truncate" id="abstract" data-sentences="3">
+          {{ pub.abstract }}
+        </div>
+      <div style="display: flex; margin-top: 0.5rem; gap: 0.7rem;">
+        {% if pub.DOI %}
+        <a href="{{ pub.DOI }}" class="button">
+          <i class="fa-solid fa-link" aria-hidden="true"></i><div>DOI</div>
+        </a>
+        {% endif %}
+        {% if pub.PDF %}
+        <a href="{{ pub.PDF }}" class="button">
+          <i class="fa-solid fa-file-pdf" aria-hidden="true"></i> <div>PDF</div>
+        </a>
+        {% endif %}
+      </div>
+
+      </div>
+  {% endfor %}
+  </div>
+{% endfor %}
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const blocks = document.querySelectorAll(".js-truncate");
+
+  blocks.forEach((el, idx) => {
+    const n = parseInt(el.dataset.sentences) || 3;
+    const fullHTML = el.innerHTML.trim();
+    const text = el.textContent.trim();
+
+    // Split by sentence endings, keeping punctuation.
+    const sentences = text.split(/(?<=[.!?])\s+/);
+
+    if (sentences.length <= n) return; // nothing to truncate
+
+    const previewText = sentences.slice(0, n).join(" ");
+    el.innerHTML = previewText + "…";
+
+    // Accessible toggle
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "show-more";
+    btn.setAttribute("aria-expanded", "false");
+
+    // Ensure each abstract has an id for aria-controls
+    const id = el.id || `abstract-${idx}`;
+    el.id = id;
+    btn.setAttribute("aria-controls", id);
+    btn.textContent = "Show more";
+
+    btn.addEventListener("click", () => {
+      el.innerHTML = fullHTML;   // expand text
+      btn.style.display = "none"; // hide button after click
+    });
+
+    // Optional wrapper for layout
+    const wrapper = document.createElement("div");
+    wrapper.className = "abstract-wrapper";
+    el.parentNode.insertBefore(wrapper, el);
+    wrapper.appendChild(el);
+
+    const controls = document.createElement("div");
+    controls.className = "abstract-controls";
+    controls.appendChild(btn);
+    wrapper.appendChild(controls);
+  });
+});
+</script>

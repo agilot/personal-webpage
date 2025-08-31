@@ -4,7 +4,25 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ site.title }} - {{ page.title }}</title>
+        <title>{{ site.title }}</title>
+
+        <!-- Favicon -->
+        <link id="favicon" rel="icon" type="image/png" sizes="32x32" href="/images/favicons/andrea-light-favicon.png">
+        <script>
+            (function () {
+                const mq = window.matchMedia('(prefers-color-scheme: dark)');
+                const el = document.getElementById('favicon');
+                function setIcon() {
+                el.href = mq.matches ? '/images/favicons/andrea-dark-favicon.png' : '/images/favicons/andrea-light-favicon.png';
+                }
+                setIcon();
+                mq.addEventListener ? mq.addEventListener('change', setIcon)
+                                    : mq.addListener(setIcon); // older Safari
+            })();
+        </script>
+
+        <!-- Stylesheets -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
         <link rel="stylesheet" href="{{ '/css/default.css' | relative_url }}" />
         {% if page.inlineCSS %}
         <style>{{ page.inlineCSS }}</style>
@@ -12,18 +30,22 @@
     </head>
     <body>
         <header>
-            <div class="title">
-                <b href="/">{{ site.title }}</b>
+            <div class="column header-row">
+                <a class="title" href="/"><b>{{ site.title }}</b></a>
+                <nav>
+                    {% for nav_page in site.data.navigation.pages %}
+                    <a href="{{ nav_page.url }}" class="{% if page.url == nav_page.url %}active{% endif %}">
+                        {{ nav_page.title }}
+                    </a>
+                    {% endfor %}
+                </nav>
             </div>
-            <nav>
-                <a href="/">About</a>
-                <a href="/cv.html">CV</a>
-            </nav>
         </header>
 
         <main role="main">
-            <h1>{{ page.title }}</h1>
-            {{ content }}
+            <div class="column">
+                {{ content }}
+            </div>
         </main>
 
         <footer>
