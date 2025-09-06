@@ -2,9 +2,17 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ site.title }}</title>
+        <meta name="theme-color" content="#ffffff">
+        <link rel="canonical" href="{{ site.url | append: site.baseurl }}">
+
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="{{ page.title}}">
+        <meta property="og:description" content="{{ site.description}}">
+        <meta property="og:url" content="{{ site.url | append: site.baseurl }}">
+        <meta property="og:image" content="{{ site.url | append: site.baseurl }}/{{ site.portrait }}">
+        <meta property="og:site_name" content="{{ site.title}}">
 
         <!-- Favicon -->
         <link id="favicon" rel="icon" type="image/png" sizes="32x32" href="/images/favicons/andrea-light-favicon.png">

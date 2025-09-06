@@ -27,6 +27,7 @@ github: https://github.com/agilot
 bluesky: https://bsky.app/profile/agilot.bsky.social
 orcid: https://orcid.org/0009-0006-4463-9414
 portrait: images/profile_picture.jpeg
+description: "PhD student in Computer Science at Uppsala University. My research focuses on verification of numerical software. Broadly interested in formal methods, programming languages, and software engineering."
 
 
 # Build settings
