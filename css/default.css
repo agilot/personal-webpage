@@ -105,6 +105,7 @@ nav .active {
 .column {
   max-width: var(--page-max);
   margin-inline: auto;
+  padding-inline: clamp(1rem, 5vw, 2rem)
 }
 
 
@@ -168,8 +169,8 @@ article .header {
 .publication .metadata .author.hg { font-weight: 500; }
 .publication .abstract {
   margin-left: 0.5em;
-  padding-left: 0.5em;
-  border-left: 1px solid var(--color-accent);
+  padding-left: 1.5rem;
+  /* border-left: 1px solid var(--color-accent); */
 }
 .publication .abstract > p:first-child { margin-top: 0; }
 .publication .abstract > p:last-child  { margin-bottom: 0; }

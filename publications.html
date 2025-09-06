@@ -12,40 +12,49 @@ inlineCSS: >-
     padding: 1.5rem 2.2rem 1.5rem;
   }
   .pub-title {
-    font-size: 2rem;
+    font-size: 2.1rem;
     margin-bottom: 0.5rem;
   }
 
   .pub-authors {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
 
   .pub-venue {
     font-style: italic;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
   .pub-year {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
   .pub-abstract {
     margin-top: 0.2rem;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     color: grey;
+  }
+
+  .pub-abstract.is-clamped {
+    display: -webkit-box;        /* required for -webkit-line-clamp */
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;       /* JS will overwrite this number per item */
+    overflow: hidden;
   }
 
   .show-more {
     background: none; 
     border: 0; 
     padding: 0;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     text-decoration: none; 
     cursor: pointer;
     font-family: var(--font-sans);
-    }
+  }
 
   .show-more:hover {
     color: grey;
   }
+
+  /* DOI and PDF buttons */
 
   .button {
     display: flex;
@@ -91,7 +100,7 @@ inlineCSS: >-
             {{ year[0] }}
           </div>
         </div>
-        <div class="pub-abstract js-truncate" id="abstract" data-sentences="3">
+        <div class="pub-abstract js-truncate" id="abstract" data-lines="3">
           {{ pub.abstract }}
         </div>
       <div style="display: flex; margin-top: 0.5rem; gap: 0.7rem;">
@@ -117,45 +126,48 @@ document.addEventListener("DOMContentLoaded", function () {
   const blocks = document.querySelectorAll(".js-truncate");
 
   blocks.forEach((el, idx) => {
-    const n = parseInt(el.dataset.sentences) || 3;
-    const fullHTML = el.innerHTML.trim();
-    const text = el.textContent.trim();
+    // 1) How many lines? (data-lines or default 3)
+    const lines = parseInt(el.dataset.lines, 10) || 3;
 
-    // Split by sentence endings, keeping punctuation.
-    const sentences = text.split(/(?<=[.!?])\s+/);
+    // 2) Apply the clamp class and set the clamp count
+    el.classList.add("is-clamped");
+    el.style.webkitLineClamp = String(lines); // Chrome/Safari/Edge
+    // If Firefox supports 'line-clamp' in your target, you can also set:
+    // el.style.lineClamp = String(lines);
 
-    if (sentences.length <= n) return; // nothing to truncate
+    // 3) If nothing actually overflows, skip the button
+    //    (need to wait a frame to let layout settle)
+    requestAnimationFrame(() => {
+      const overflowing = el.scrollHeight > el.clientHeight + 1;
+      if (!overflowing) return;
 
-    const previewText = sentences.slice(0, n).join(" ");
-    el.innerHTML = previewText + "…";
+      // 4) Make the "Show more" button
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "show-more";
+      btn.setAttribute("aria-expanded", "false");
 
-    // Accessible toggle
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "show-more";
-    btn.setAttribute("aria-expanded", "false");
+      // Ensure each abstract has a unique id for aria-controls
+      const id = el.id || `abstract-${idx}`;
+      el.id = id;
+      btn.setAttribute("aria-controls", id);
+      btn.textContent = "Show more";
 
-    // Ensure each abstract has an id for aria-controls
-    const id = el.id || `abstract-${idx}`;
-    el.id = id;
-    btn.setAttribute("aria-controls", id);
-    btn.textContent = "Show more";
+      // 5) Expand on click: remove clamp, update a11y, hide button
+      btn.addEventListener("click", () => {
+        el.classList.remove("is-clamped");
+        el.style.webkitLineClamp = null;
+        btn.setAttribute("aria-expanded", "true");
+        btn.style.display = "none";
+      });
 
-    btn.addEventListener("click", () => {
-      el.innerHTML = fullHTML;   // expand text
-      btn.style.display = "none"; // hide button after click
+      // 6) Insert the button right after the abstract
+      const controls = document.createElement("div");
+      controls.className = "abstract-controls";
+      controls.appendChild(btn);
+      el.insertAdjacentElement("afterend", controls);
     });
-
-    // Optional wrapper for layout
-    const wrapper = document.createElement("div");
-    wrapper.className = "abstract-wrapper";
-    el.parentNode.insertBefore(wrapper, el);
-    wrapper.appendChild(el);
-
-    const controls = document.createElement("div");
-    controls.className = "abstract-controls";
-    controls.appendChild(btn);
-    wrapper.appendChild(controls);
   });
 });
 </script>
+

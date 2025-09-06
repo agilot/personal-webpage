@@ -58,6 +58,7 @@ theses:
 teaching:
   - position: Teaching Assistant
     institution: Uppsala University
+    logo: uppsala-favicon.png
     courses:
       - code: 1DL201
         title: Program Design and Data Structures
@@ -70,6 +71,7 @@ teaching:
           - 2025
   - position: Student Assistant
     institution: EPFL
+    logo: epfl-favicon.png
     courses:
       - code: CS-550
         title: Formal Verification
