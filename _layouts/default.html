@@ -61,7 +61,13 @@
             "@id": "{{ site.url | append: site.baseurl }}/#org",
             "url": "{{ site.url | append: site.baseurl }}/",
             "name": "{{ site.title}}",
-            "logo": "{{ site.url | append: site.baseurl }}/images/favicons/andrea-light-favicon.png",
+            "logo": {
+                "@type": "ImageObject",
+                "@id": "{{ site.url | append: site.baseurl }}/#logo",
+                "url": "{{ site.url | append: site.baseurl }}/images/favicons/andrea-light-favicon.png",
+                "width": 832,
+                "height": 832
+            },
             "sameAs": [
                 "{{ site.google_scholar }}",
                 "{{ site.orcid }}",
