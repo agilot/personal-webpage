@@ -25,14 +25,43 @@
             {
             "@context": "https://schema.org",
             "@type": "Person",
+            "@id": "{{ site.url | append: site.baseurl }}/#me",
             "name": "{{ site.title }}",
-            "url": "{{ site.url }}",
-            "image": "{{ site.url }}/images/favicons/andrea-light-favicon.png",
+            "url": "{{ site.url | append: site.baseurl }}",
+            "image": "{{ site.url | append: site.baseurl }}/{{ site.portrait }}",
             "jobTitle": "PhD Student in Computer Science",
             "affiliation": {
                 "@type": "Organization",
                 "name": "Department of Information Technology, Uppsala University"
             },
+            "sameAs": [
+                "{{ site.google_scholar }}",
+                "{{ site.orcid }}",
+                "{{ site.github }}",
+                "{{ site.bluesky }}"
+            ]
+            }
+        </script>
+
+        <script type="application/ld+json">
+            {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": "{{ site.url | append: site.baseurl }}/#website",
+            "url": "{{ site.url | append: site.baseurl }}/",
+            "name": "{{ site.title }}",
+            "publisher": { "@id": "{{ site.url | append: site.baseurl }}/#me" }
+            }
+         </script>
+
+         <script type="application/ld+json">
+            {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "@id": "{{ site.url | append: site.baseurl }}/#org",
+            "url": "{{ site.url | append: site.baseurl }}/",
+            "name": "{{ site.title}}",
+            "logo": "{{ site.url | append: site.baseurl }}/images/favicons/andrea-light-favicon.png",
             "sameAs": [
                 "{{ site.google_scholar }}",
                 "{{ site.orcid }}",
