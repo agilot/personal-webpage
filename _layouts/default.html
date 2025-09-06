@@ -21,6 +21,27 @@
             })();
         </script>
 
+        <script type="application/ld+json">
+            {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "{{ site.title }}",
+            "url": "{{ site.url }}",
+            "image": "{{ site.url }}/images/favicons/andrea-light-favicon.png",
+            "jobTitle": "PhD Student in Computer Science",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "Department of Information Technology, Uppsala University"
+            },
+            "sameAs": [
+                "{{ site.google_scholar }}",
+                "{{ site.orcid }}",
+                "{{ site.github }}",
+                "{{ site.bluesky }}"
+            ]
+            }
+        </script>
+
         <!-- Stylesheets -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
         <link rel="stylesheet" href="{{ '/css/default.css' | relative_url }}" />
@@ -31,7 +52,10 @@
     <body>
         <header>
             <div class="column header-row">
-                <a class="title" href="/"><b>{{ site.title }}</b></a>
+                <a class="title" href="/">
+                    <img src="/images/favicons/andrea-light-favicon.png" alt="Logo" style="height:32px; vertical-align:middle; margin-right:4px; margin-top: -5px;">
+                    <b>{{ site.title }}</b>
+                </a>
                 <nav>
                     {% for nav_page in site.data.navigation.pages %}
                     <a href="{{ nav_page.url }}" class="{% if page.url == nav_page.url %}active{% endif %}">
