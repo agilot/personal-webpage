@@ -78,47 +78,54 @@ inlineCSS: >-
   <div class="year">{{ year[0] }}</div>
   {% for pub in year[1] %}
       <div class="card">
-      <div class="pub-title">{{ pub.title }}</div>
-          {% for author in pub.authors %}
-            {% if author == "Andrea Gilot" %}
-              {% assign formatted_authors = formatted_authors | append: "<b>" | append: author | append: "</b>" %}
-            {% else %}
-              {% assign formatted_authors = formatted_authors | append: author %}
-            {% endif %}
-            {% unless forloop.last %}
-              {% assign formatted_authors = formatted_authors | append: "||" %}
-            {% endunless %}
-          {% endfor %}
+        <div class="pub-title">{{ pub.title }}</div>
+        {% assign formatted_authors = "" %}
+        {% for author in pub.authors %}
+          {% if author == "Andrea Gilot" %}
+            {% assign formatted_authors = formatted_authors | append: "<b>" | append: author | append: "</b>" %}
+          {% else %}
+            {% assign formatted_authors = formatted_authors | append: author %}
+          {% endif %}
+          {% unless forloop.last %}
+            {% assign formatted_authors = formatted_authors | append: "||" %}
+          {% endunless %}
+        {% endfor %}
         <div class="pub-authors">
           {{ formatted_authors | split: "||" | array_to_sentence_string }}
         </div>
         <div style="display: flex; gap: 0.2rem;">
           <div class="pub-venue">
-            {{ pub.venue }} 
+            {% if pub.venue %}
+              {{ pub.venue }}
+            {% else %}
+              Preprint
+            {% endif %}
           </div>
           <div class="pub-year">
-            {{ year[0] }}
+            {% if pub.venue %}
+              {{ year[0] }}
+            {% endif %}
           </div>
         </div>
         <div class="pub-abstract js-truncate" id="abstract" data-lines="3">
           {{ pub.abstract }}
         </div>
-      <div style="display: flex; margin-top: 0.5rem; gap: 0.7rem;">
-        {% if pub.DOI %}
-        <a href="{{ pub.DOI }}" class="button">
-          <i class="fa-solid fa-link" aria-hidden="true"></i><div>DOI</div>
-        </a>
-        {% endif %}
-        {% if pub.PDF %}
-        <a href="{{ pub.PDF }}" class="button">
-          <i class="fa-solid fa-file-pdf" aria-hidden="true"></i> <div>PDF</div>
-        </a>
-        {% endif %}
-      </div>
+        <div style="display: flex; margin-top: 0.5rem; gap: 0.7rem;">
+          {% if pub.DOI %}
+            <a href="{{ pub.DOI }}" class="button">
+              <i class="fa-solid fa-link" aria-hidden="true"></i><div>DOI</div>
+            </a>
+          {% endif %}
+          {% if pub.PDF %}
+            <a href="{{ pub.PDF }}" class="button">
+              <i class="fa-solid fa-file-pdf" aria-hidden="true"></i> <div>PDF</div>
+            </a>
+          {% endif %}
+        </div>
 
       </div>
   {% endfor %}
-  </div>
+  <br>
 {% endfor %}
 
 <script>

@@ -72,7 +72,7 @@ inlineCSS: >-
       {% for pub in year[1] %}
         <span class="series">[{{ pub.acronym }}]</span>
         <cite class="title">
-          <a href="{{ pub.DOI }}">{{ pub.title }}</a>
+          <a href="{% if pub.DOI %} {{ pub.DOI }} {% else %} {{ pub.PDF }} {% endif %}">{{ pub.title }}</a>
         </cite>
         <div class="metadata">
           {% assign formatted_authors = "" %}
@@ -97,8 +97,9 @@ inlineCSS: >-
             {{ pub.abstract }}
           </div>
         </details>
-        {% endfor %}
+        <br>
       {% endfor %}
+    {% endfor %}
   </article>
 </div>
 
