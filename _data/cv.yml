@@ -42,6 +42,13 @@ work:
 theses:
   - category: master
     list: 
+    - student: Arvid Lorén
+      title: Usability-Driven IDE Integration for the Stainless verifier
+    - student: Holger Swartling
+      title: Large-Scale Code Deduplication
+    - student: Babitha Mannaravalappil Kuvvakkattayil
+      title: Analyzing Energy-Related Tradeoffs in Pull Requests Through Quality-in-Use
+      cosupervisor: jennifer_gross
     - student: Mario Tannous
       title: Specification Inference for Scala and Stainless
   - category: bachelor

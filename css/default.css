@@ -179,4 +179,51 @@ article .header {
 /* Cards (e.g., with Bootstrap) */
 .card { border-radius: var(--radius-card); /* remove !important if possible */ }
 
+/* @media (max-width: 768px) {
 
+  Make header vertical instead of squeezed
+  .header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  Navigation: stack links + bigger tap targets
+  nav {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  nav a {
+    padding: 0.8rem 0;
+    width: 100%;
+  }
+
+  Improve margin/padding on small screens
+  header {
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+  }
+
+  .column {
+    padding-inline: 1rem;
+  }
+
+  Ensure text remains readable on small screens
+  body {
+    font-size: var(--fs-300);
+    line-height: 1.5;
+  }
+
+  Prevent long justified text rivers on narrow screens
+  p {
+    text-align: left;
+  }
+
+  Footer: center everything
+  footer {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+} */
