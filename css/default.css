@@ -25,7 +25,7 @@
 
   /* Page widths */
   --page-px: 5%;
-  --page-max: 80rem;
+  --page-max: 85rem;
 }
 
 /* ===========================
@@ -58,9 +58,33 @@ a:hover {
   text-decoration-color: var(--color-accent);
 }
 
+/* Better sizing math */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+/* Prevent horizontal scrolling caused by long words/links */
+body {
+  overflow-x: hidden;
+}
+
+main, p, a, li {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
 /* Headings */
 h1 { font-size: var(--fs-600); }
 h2 { font-size: var(--fs-500); }
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
 /* ===========================
    Header & Footer

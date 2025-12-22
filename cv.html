@@ -72,7 +72,7 @@ inlineCSS: >-
       {% for pub in year[1] %}
         <span class="series">[{{ pub.acronym }}]</span>
         <cite class="title">
-          <a href="{% if pub.DOI %} {{ pub.DOI }} {% else %} {{ pub.PDF }} {% endif %}">{{ pub.title }}</a>
+          <a href="{% if pub.DOI %} {{ pub.DOI }} {% else %} {{ pub.PDF }} {% endif %}" target="_blank" rel="noopener noreferrer">{{ pub.title }}</a>
         </cite>
           <div class="metadata">
             {% assign formatted_authors = "" %}
@@ -165,7 +165,7 @@ inlineCSS: >-
                       (co-supervised with
                           {% assign p = site.data.people[thesis.cosupervisor] %}
                           {%- if p.webpage -%}
-                            <a href="{{ p.webpage }}">{{ p.name }}</a>
+                            <a href="{{ p.webpage }}" target="_blank" rel="noopener noreferrer">{{ p.name }}</a>
                           {%- else -%}
                             {{ p.name }}
                           {%- endif -%}

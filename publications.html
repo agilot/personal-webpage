@@ -93,8 +93,10 @@ inlineCSS: >-
   <div class="year">{{ year[0] }}</div>
   {% for pub in year[1] %}
       <div class="card">
-        <a class="conf-badge" href="{{ pub.venue_link }}">{{ pub.acronym }}</a>
-        <span class="pub-title">{{ pub.title }}</span>
+        <div style="margin-bottom: 0.3rem;">
+          <a class="conf-badge" href="{{ pub.venue_link }}" target="_blank" rel="noopener noreferrer">{{ pub.acronym }}</a>
+          <span class="pub-title">{{ pub.title }}</span>
+        </div>
           {% assign formatted_authors = "" %}
           {% assign has_equal_contrib = false %}
 
@@ -138,17 +140,17 @@ inlineCSS: >-
         </div>
         <div style="display: flex; margin-top: 0.5rem; gap: 0.7rem;">
           {% if pub.DOI %}
-            <a href="{{ pub.DOI }}" class="button">
+            <a href="{{ pub.DOI }}" class="button" target="_blank" rel="noopener noreferrer">
               <i class="fa-solid fa-link" aria-hidden="true"></i><div>DOI</div>
             </a>
           {% endif %}
           {% if pub.PDF %}
-            <a href="{{ pub.PDF }}" class="button">
+            <a href="{{ pub.PDF }}" class="button" target="_blank" rel="noopener noreferrer">
               <i class="fa-solid fa-file-pdf" aria-hidden="true"></i> <div>PDF</div>
             </a>
           {% endif %}
           {% if pub.artifact %}
-            <a href="{{ pub.artifact }}" class="button">
+            <a href="{{ pub.artifact }}" class="button" target="_blank" rel="noopener noreferrer">
               <i class="fa-solid fa-box-archive" aria-hidden="true"></i> <div>Artifact</div>
             </a>
           {% endif %}
