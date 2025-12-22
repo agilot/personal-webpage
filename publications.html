@@ -73,37 +73,63 @@ inlineCSS: >-
     background-color: #e0e0e0; /* slightly grey */
     color: #000;
   }
+
+  .conf-badge {
+    display: inline-block;
+    margin-right: 0.1em;
+    padding: 0.15em 0.25em;
+
+    font-size: 1.7rem;
+    font-weight: 300;
+
+    border-radius: 4px;
+    background-color: var(--color-link);
+    color: white;
+
+    vertical-align: top;
+  }
 ---
 {% for year in site.data.publications %}
   <div class="year">{{ year[0] }}</div>
   {% for pub in year[1] %}
       <div class="card">
-        <div class="pub-title">{{ pub.title }}</div>
-        {% assign formatted_authors = "" %}
-        {% for author in pub.authors %}
-          {% if author == "Andrea Gilot" %}
-            {% assign formatted_authors = formatted_authors | append: "<b>" | append: author | append: "</b>" %}
-          {% else %}
-            {% assign formatted_authors = formatted_authors | append: author %}
-          {% endif %}
-          {% unless forloop.last %}
-            {% assign formatted_authors = formatted_authors | append: "||" %}
-          {% endunless %}
-        {% endfor %}
+        <a class="conf-badge" href="{{ pub.venue_link }}">{{ pub.acronym }}</a>
+        <span class="pub-title">{{ pub.title }}</span>
+          {% assign formatted_authors = "" %}
+          {% assign has_equal_contrib = false %}
+
+          {% for author in pub.authors %}
+            {% assign author_name = author.name | default: author %}
+
+            {% if author.equal %}
+              {% assign has_equal_contrib = true %}
+              {% assign author_display = author_name | append: "<sup>*</sup>" %}
+            {% else %}
+              {% assign author_display = author_name %}
+            {% endif %}
+
+            {% if author_name == "Andrea Gilot" %}
+              {% assign author_display = "<b>" | append: author_display | append: "</b>" %}
+            {% endif %}
+
+            {% assign formatted_authors = formatted_authors | append: author_display %}
+
+            {% unless forloop.last %}
+              {% assign formatted_authors = formatted_authors | append: "||" %}
+            {% endunless %}
+          {% endfor %}
         <div class="pub-authors">
           {{ formatted_authors | split: "||" | array_to_sentence_string }}
+          {% if has_equal_contrib %}
+            <span class="equal-contrib">
+              <em>(* equal contributions)</em>
+            </span>
+          {% endif %}
         </div>
-        <div style="display: flex; gap: 0.2rem;">
+        <div style="display: flex; gap: 0.4rem;">
           <div class="pub-venue">
             {% if pub.venue %}
               {{ pub.venue }}
-            {% else %}
-              Preprint
-            {% endif %}
-          </div>
-          <div class="pub-year">
-            {% if pub.venue %}
-              {{ year[0] }}
             {% endif %}
           </div>
         </div>
@@ -119,6 +145,11 @@ inlineCSS: >-
           {% if pub.PDF %}
             <a href="{{ pub.PDF }}" class="button">
               <i class="fa-solid fa-file-pdf" aria-hidden="true"></i> <div>PDF</div>
+            </a>
+          {% endif %}
+          {% if pub.artifact %}
+            <a href="{{ pub.artifact }}" class="button">
+              <i class="fa-solid fa-box-archive" aria-hidden="true"></i> <div>Artifact</div>
             </a>
           {% endif %}
         </div>

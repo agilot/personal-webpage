@@ -74,22 +74,38 @@ inlineCSS: >-
         <cite class="title">
           <a href="{% if pub.DOI %} {{ pub.DOI }} {% else %} {{ pub.PDF }} {% endif %}">{{ pub.title }}</a>
         </cite>
-        <div class="metadata">
-          {% assign formatted_authors = "" %}
+          <div class="metadata">
+            {% assign formatted_authors = "" %}
+            {% assign has_equal_contrib = false %}
+
             {% for author in pub.authors %}
-              {% if author == "Andrea Gilot" %}
-                {% assign formatted_authors = formatted_authors | append: "<b>" | append: author | append: "</b>" %}
+              {% assign author_name = author.name | default: author %}
+
+              {% if author.equal %}
+                {% assign has_equal_contrib = true %}
+                {% assign author_display = author_name | append: "<sup>*</sup>" %}
               {% else %}
-                {% assign formatted_authors = formatted_authors | append: author %}
+                {% assign author_display = author_name %}
               {% endif %}
+
+              {% if author_name == "Andrea Gilot" %}
+                {% assign author_display = "<b>" | append: author_display | append: "</b>" %}
+              {% endif %}
+
+              {% assign formatted_authors = formatted_authors | append: author_display %}
+
               {% unless forloop.last %}
                 {% assign formatted_authors = formatted_authors | append: "||" %}
               {% endunless %}
             {% endfor %}
-
-            <div class="authors">
-              {{ formatted_authors | split: "||" | array_to_sentence_string }}
-            </div>
+          <div class="pub-authors">
+            {{ formatted_authors | split: "||" | array_to_sentence_string }}
+            {% if has_equal_contrib %}
+              <span class="equal-contrib">
+                <em>(* equal contributions)</em>
+              </span>
+            {% endif %}
+          </div>
         </div>
         <details>
           <summary>Abstract</summary>
