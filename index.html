@@ -10,11 +10,24 @@ inlineCSS: >-
 ---
 
 <style>
-    .container {
-        display: flex;
-    }
     .column {
         flex: 50%;
+    }
+    .container {
+        display: flex;
+        gap: 2rem;
+        align-items: flex-start;
+    }
+
+    .container > * {
+        flex: 1;
+        min-width: 0; /* prevents weird overflow */
+    }
+
+    @media (max-width: 800px) {
+        .container {
+            flex-direction: column;
+        }
     }
 </style>
 
