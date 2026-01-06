@@ -67,7 +67,7 @@ inlineCSS: >-
 <div class="card">
   <h2 class="header">Publications</h2>
 
-  <article class="publication" style="padding-left: 26px;">
+  <article class="publication" style="padding-left: 30px;">
     {% for year in site.data.publications %}
       {% for pub in year[1] %}
         <span class="series">[{{ pub.acronym }}]</span>
@@ -116,6 +116,19 @@ inlineCSS: >-
         <br>
       {% endfor %}
     {% endfor %}
+  </article>
+</div>
+<br>
+
+<!-- Community Service -->
+
+<div class="card">
+  <h2 class="header">Community Service</h2>
+  <article class="publication" style="padding-left: 30px;">
+  {% for position in site.data.cv.service %}
+    <span class="series">[{{ position.venue }}]</span> 
+    {{position.title}}
+  {% endfor %}
   </article>
 </div>
 

@@ -102,3 +102,7 @@ teaching:
         title: Digital System Design
         years: 
           - 2020
+
+service: 
+  - venue: PLDI'26
+    title: Artifact Evaluation Committee 
