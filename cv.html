@@ -205,7 +205,12 @@ inlineCSS: >-
           <div>
             <ul>
               {% for course in position.courses %}
-              <li>{{ course.code }} {{ course.title }} ({{ course.years | join: ", " }})</li>
+              <li>{{ course.code }} {{ course.title }} 
+                {% if course.years.size < 3 %}
+                  ({{ course.years | join: ", " }})</li>
+                {% else %}
+                  ({{ course.years[0] }}-{{ course.years | last }})</li>
+                {% endif %}
               {% endfor %}
             </ul>
             </div>
