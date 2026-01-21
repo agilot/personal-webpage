@@ -22,7 +22,8 @@
       - name: Eva Darulova
         equal: false
     abstract: We extend the Stainless deductive verifier with floating-point support, providing the first automated verification support for floating-point numbers for a subset of Scala that includes polymorphism, recursion and higher-order functions. We follow the recent approach in the KeY verifier to axiomatise reasoning about mathematical functions, but go further by supporting all functions from Scala's math API, and by verifying the correctness of the axioms against the actual implementation in Stainless itself. We validate Stainless' floating-point support on a new set of benchmarks sampled from real-world code from GitHub, showing that it can verify specifications about e.g., ranges of output or absence of special values for most supported functions, or produce counter-examples when the specifications do not hold.
-    # artifact: https://doi.org/10.5281/zenodo.17486575
+    PDF: https://arxiv.org/pdf/2601.14059
+    artifact: https://doi.org/10.5281/zenodo.17486575
 2024:
   - title: Mechanized HOL Reasoning in Set Theory
     venue: International Conference on Interactive Theorem Proving 2024
