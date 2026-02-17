@@ -1,6 +1,8 @@
 2026:
-  - title: A Large-Scale Study of Floating-Point Usage in Statically Typed Languages
-    acronym: Preprint
+  - title: "Floating-Point Usage on GitHub: a Large-Scale Study of Statically Typed Languages"
+    venue: Proceedings of the ACM on Programming Languages (PACMPL), OOPSLA. 2026
+    acronym: OOPSLA'26
+    venue_link: https://conf.researchr.org/track/splash-2026/oopsla-2026
     authors:
       - name: Andrea Gilot
         equal: false
@@ -8,8 +10,8 @@
         equal: false
       - name: Eva Darulova
         equal: false
-    abstract: Reasoning about floating-point arithmetic is notoriously hard. While static and dynamic analysis techniques or program repair have made significant progress, more work is still needed to make them relevant to real-world code. On the critical path to that goal is understanding what real-world floating-point code looks like. To close that knowledge gap, this paper presents the first large-scale empirical study of floating-point arithmetic usage in statically typed languages across public GitHub repositories. We follow state-of the art mining practices including random sampling and filtering based on only intrinsic properties to avoid bias, and identify floating-point usage by searching for keywords in the source code, and programming language constructs (e.g., loops) by parsing the code. Our evaluation supports the claim often made in papers that floating-point arithmetic is widely used. Comparing statistics such as size and usage of certain constructs and functions, we find that benchmarks used in literature to evaluate automated reasoning techniques for floating-point arithmetic are in certain aspects representative of 'real-world' code, but not in all. We aim for our study and dataset to help future techniques for floating-point arithmetic to be designed and evaluated to match actual users' expectations. 
-    PDF: https://arxiv.org/pdf/2509.04936
+    abstract: Reasoning about floating-point arithmetic is notoriously hard. While static and dynamic analysis techniques or program repair have made significant progress, more work is still needed to make them relevant to real-world code. On the critical path to that goal is understanding what real-world floating-point code looks like. To close that knowledge gap, this paper presents the first large-scale empirical study of floating-point arithmetic usage across public GitHub repositories. We focus on statically typed languages to allow our study to scale to millions of repositories. We follow state-of the art mining practices including random sampling and filtering based on only intrinsic properties to avoid bias, and identify floating-point usage by searching for keywords in the source code, and programming language constructs (e.g., loops) by parsing the code. Our evaluation supports the claim often made in papers that floating-point arithmetic is widely used. Comparing statistics such as size and usage of certain constructs and functions, we find that benchmarks used in literature to evaluate automated reasoning techniques for floating-point arithmetic are in certain aspects representative of 'real-world' code, but not in all. We publish a dataset of 10 million real-world floating-point functions extracted from our study. We demonstrate in a case study how it may be used to identify new floating-point benchmarks and help future techniques for floating-point arithmetic to be designed and evaluated to match actual users' expectations.
+    artifact: https://doi.org/10.5281/zenodo.18500268
   - title: Verifying Floating-Point Programs in Stainless
     venue: Tools and Algorithms for the Construction and Analysis of Systems 2026
     acronym: TACAS'26
