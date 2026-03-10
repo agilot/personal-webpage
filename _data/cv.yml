@@ -43,7 +43,7 @@ theses:
   - category: master
     list: 
     - student: Arvid Lorén
-      title: Usability-Driven IDE Integration for the Stainless verifier
+      title: Usability-Driven IDE Integration for the Stainless Verifier
     - student: Holger Swartling
       title: Large-Scale Code Deduplication
     - student: Babitha Mannaravalappil Kuvvakkattayil
@@ -53,6 +53,13 @@ theses:
       title: Specification Inference for Scala and Stainless
   - category: bachelor
     list:
+    - student: Alvin Ljung Hallgren
+      title: "Mining Test Frameworks on GitHub"
+    - student: Linus Brewitz
+      title: "Large Scale Code Study of Dark Corners of Python on GitHub"
+    - student: Misha Magnusson
+      title: "Extracting Representative Rust Benchmarks from GitHub Code"
+      cosupervisor: noe_desanto
     - student: Carl Martinsson
       title: "Code Maintainability and Data Structures in Energy-Aware Software: An Empirical GitHub Study"
       cosupervisor: jennifer_gross
