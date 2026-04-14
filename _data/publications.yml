@@ -29,6 +29,7 @@
     PDF: https://arxiv.org/pdf/2601.14059
     artifact: https://doi.org/10.5281/zenodo.17486575
     poster: posters/tacas2026_poster.pdf
+    slides: slides/tacas_2026_presentation.pdf
 2024:
   - title: Mechanized HOL Reasoning in Set Theory
     venue:  Leibniz International Proceedings in Informatics, International Conference on Interactive Theorem Proving, 2024

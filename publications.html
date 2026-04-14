@@ -159,6 +159,11 @@ inlineCSS: >-
               <i class="fa-solid fa-image" aria-hidden="true"></i> <div>Poster</div>
             </a>
           {% endif %}
+          {% if pub.slides %}
+            <a href="{{ pub.slides }}" class="button" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> <div>Slides</div>
+            </a>
+          {% endif %}
         </div>
 
       </div>
