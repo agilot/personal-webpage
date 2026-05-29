@@ -118,19 +118,31 @@ inlineCSS: >-
     {% endfor %}
   </article>
 </div>
+
 <br>
 
-<!-- Community Service -->
+<!-- Awards -->
 
 <div class="card">
-  <h2 class="header">Community Service</h2>
+  <h2 class="header">Grants & Awards</h2>
+
   <article class="publication" style="padding-left: 30px;">
-  {% for position in site.data.cv.service %}
-    <span class="series">[{{ position.venue }}]</span> 
-    {{position.title}}
+  {% for award in site.data.cv.awards %}
+    <div class="entry">
+        <div class="line">
+          <span><b>{{ award.title }}</b></span>
+          <span style="float: right"><b>{{ award.date }}</b></span>
+        </div>
+        <div>
+          {{ award.subtitle }}
+        </div>
+      </div>
+      <br>
   {% endfor %}
   </article>
 </div>
+
+
 
 <!-- Work Experience -->
 <br>
@@ -220,6 +232,20 @@ inlineCSS: >-
     {% endfor %}
     
   </div>
+
+<br>
+
+<!-- Community Service -->
+
+<div class="card">
+  <h2 class="header">Community Service</h2>
+  <article class="publication" style="padding-left: 30px;">
+  {% for position in site.data.cv.service %}
+    <span class="series">[{{ position.venue }}]</span> 
+    {{position.title}}
+  {% endfor %}
+  </article>
+</div>
 
 <!-- Past Projects -->
 <!-- <br>

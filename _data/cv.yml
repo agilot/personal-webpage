@@ -20,6 +20,15 @@ education:
     advisor: Prof. Jean-Yves Le Boudec
     logo: epfl-favicon.png
 
+awards:
+  - title: FLoC 2026 Mentoring Workshop Travel Grant
+    subtitle: Federated Logic Conference
+    date: 2026
+  - title: NAISS Small Compute Allocation
+    subtitle: "\"Classification of sustainability-aware developer data on GitHub\" - National Academic Infrastructure for Supercomputing in Sweden"
+    date: 2026-2027
+
+
 work:
   - position: Research Intern
     company: LARA (EPFL)
