@@ -21,6 +21,9 @@ education:
     logo: epfl-favicon.png
 
 awards:
+  - title: Distinguished Artifact Evaluation Reviewer
+    subtitle: Programming Language Design and Implementation (PLDI)
+    date: 2026
   - title: FLoC 2026 Mentoring Workshop Travel Grant
     subtitle: Federated Logic Conference
     date: 2026
@@ -123,3 +126,4 @@ teaching:
 service: 
   - venue: PLDI'26
     title: Artifact Evaluation Committee 
+    award: Distinguished Reviewer

@@ -243,6 +243,9 @@ inlineCSS: >-
   {% for position in site.data.cv.service %}
     <span class="series">[{{ position.venue }}]</span> 
     {{position.title}}
+    {% if position.award %}
+      <span class="badge-gold" style="float: right;">{{ position.award }}</span>
+    {% endif %}
   {% endfor %}
   </article>
 </div>
