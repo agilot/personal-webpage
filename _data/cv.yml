@@ -86,6 +86,10 @@ teaching:
     institution: Uppsala University
     logo: uppsala-favicon.png
     courses:
+      - code: 1DT034
+        title: Programming Theory
+        years: 
+          - 2026
       - code: 1DL201
         title: Program Design and Data Structures
         years: 
@@ -124,6 +128,8 @@ teaching:
           - 2020
 
 service: 
+  - venue: ICSE'27
+    title: Shadow PC
   - venue: PLDI'26
     title: Artifact Evaluation Committee 
     award: Distinguished Reviewer
