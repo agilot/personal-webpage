@@ -133,3 +133,5 @@ service:
   - venue: PLDI'26
     title: Artifact Evaluation Committee 
     award: Distinguished Reviewer
+  - venue: CAV'26
+    title: Proceedings Preparation Assistance
