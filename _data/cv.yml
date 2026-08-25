@@ -55,9 +55,9 @@ theses:
   - category: master
     list: 
     - student: Arvid Lorén
-      title: Usability-Driven IDE Integration for the Stainless Verifier
+      title: Usability Recommendations for Deductive Verifiers
     - student: Holger Swartling
-      title: Large-Scale Code Deduplication
+      title: Large-Scale Code Clone Detection using Adaptive Prefix Filtering
     - student: Babitha Mannaravalappil Kuvvakkattayil
       title: Analyzing Energy-Related Tradeoffs in Pull Requests Through Quality-in-Use
       cosupervisor: jennifer_gross
@@ -66,9 +66,9 @@ theses:
   - category: bachelor
     list:
     - student: Alvin Ljung Hallgren
-      title: "Mining Test Frameworks on GitHub"
+      title: "An Empirical Study on Usage of Testing Frameworks on GitHub"
     - student: Linus Brewitz
-      title: "Large Scale Code Study of Dark Corners of Python on GitHub"
+      title: "Large-Scale Code Study on the Usage of Dynamic Python Features on GitHub"
     - student: Misha Magnusson
       title: "Extracting Representative Rust Benchmarks from GitHub Code"
       cosupervisor: noe_desanto
