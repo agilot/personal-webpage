@@ -81,6 +81,15 @@ theses:
     - student: Valentin Hassinen
       title: "Field Testing Stainless by Verifying Daisy's AST Library"
 
+guestlectures:
+- institution: Uppsala University
+  logo: uppsala-favicon.png
+  lectures:
+  - title: "Formal Methods"
+    code: 1DL251
+    course: Software Engineering and Project Management
+    date: 2026
+
 teaching:
   - position: Teaching Assistant
     institution: Uppsala University

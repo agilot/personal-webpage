@@ -208,6 +208,24 @@ inlineCSS: >-
 
     <br>
 
+    {% for institution in site.data.cv.guestlectures %}
+      <div class="line-with-icon">
+        <img class="favicon" src="/images/favicons/{{ institution.logo }}" alt="{{ institution.institution }} Logo">
+        <div class="entry">
+          <b>Guest Lectures</b>,<i> {{ institution.institution }}</i>
+          <br>
+          <div>
+            <ul>
+              {% for lecture in institution.lectures %}
+              <li><cite>{{ lecture.title }}</cite> in {{ lecture.code }} {{ lecture.course }}, {{ lecture.date }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <br>
+    {% endfor %}
+
     {% for position in site.data.cv.teaching %}
       <div class="line-with-icon">
         <img class="favicon" src="/images/favicons/{{ position.logo }}" alt="{{ position.institution }} Logo">
