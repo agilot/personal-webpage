@@ -149,11 +149,6 @@ inlineCSS: >-
               <i class="fa-solid fa-file-pdf" aria-hidden="true"></i> <div>PDF</div>
             </a>
           {% endif %}
-          {% if pub.artifact %}
-            <a href="{{ pub.artifact }}" class="button" target="_blank" rel="noopener noreferrer">
-              <i class="fa-solid fa-box-archive" aria-hidden="true"></i> <div>Artifact</div>
-            </a>
-          {% endif %}
           {% if pub.poster %}
             <a href="{{ pub.poster }}" class="button" target="_blank" rel="noopener noreferrer">
               <i class="fa-solid fa-image" aria-hidden="true"></i> <div>Poster</div>
@@ -162,6 +157,26 @@ inlineCSS: >-
           {% if pub.slides %}
             <a href="{{ pub.slides }}" class="button" target="_blank" rel="noopener noreferrer">
               <i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> <div>Slides</div>
+            </a>
+          {% if pub.website %}
+            <a href="{{ pub.website }}" class="button" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-link" aria-hidden="true"></i> <div>Website</div>
+            </a>
+          {% endif %}
+          {% if pub.dataset %}
+            <a href="{{ pub.dataset }}" class="button" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-database" aria-hidden="true"></i> <div>Dataset</div>
+            </a>
+          {% endif %}
+          {% if pub.benchmarks %}
+            <a href="{{ pub.benchmarks }}" class="button" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-pen-ruler" aria-hidden="true"></i> <div>Benchmarks</div>
+            </a>
+          {% endif %}
+                    {% endif %}
+                    {% if pub.artifact %}
+            <a href="{{ pub.artifact }}" class="button" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-box-archive" aria-hidden="true"></i> <div>Artifact</div>
             </a>
           {% endif %}
         </div>

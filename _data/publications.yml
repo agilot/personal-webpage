@@ -14,6 +14,10 @@
     PDF: papers/oopsla2026_paper.pdf
     DOI: https://doi.org/10.1145/3798203
     artifact: https://doi.org/10.5281/zenodo.18500268
+    slides: slides/oopsla_2026_presentation.pdf
+    website: https://scyros-mining.github.io
+    dataset: https://doi.org/10.5281/zenodo.17055622
+    benchmarks: https://doi.org/10.5281/zenodo.22712519
   - title: Verifying Floating-Point Programs in Stainless
     venue:  Lecture Notes in Computer Science, Tools and Algorithms for the Construction and Analysis of Systems, 2026
     acronym: TACAS'26
@@ -28,9 +32,10 @@
     abstract: We extend the Stainless deductive verifier with floating-point support, providing the first automated verification support for floating-point numbers for a subset of Scala that includes polymorphism, recursion and higher-order functions. We follow the recent approach in the KeY verifier to axiomatise reasoning about mathematical functions, but go further by supporting all functions from Scala's math API, and by verifying the correctness of the axioms against the actual implementation in Stainless itself. We validate Stainless' floating-point support on a new set of benchmarks sampled from real-world code from GitHub, showing that it can verify specifications about e.g., ranges of output or absence of special values for most supported functions, or produce counter-examples when the specifications do not hold.
     DOI: https://doi.org/10.1007/978-3-032-22749-2_1
     PDF: https://arxiv.org/pdf/2601.14059
-    artifact: https://doi.org/10.5281/zenodo.17486575
     poster: posters/tacas2026_poster.pdf
     slides: slides/tacas_2026_presentation.pdf
+    artifact: https://doi.org/10.5281/zenodo.17486575
+    benchmarks: https://github.com/fxpl/stainless-float-benchmarks
 2024:
   - title: Mechanized HOL Reasoning in Set Theory
     venue:  Leibniz International Proceedings in Informatics, International Conference on Interactive Theorem Proving, 2024
