@@ -2,10 +2,40 @@
 layout: default
 inlineCSS: >-
   .card {
-    padding: 3rem 3rem 3rem;
+    padding: 3rem 3rem 1rem;
+  }
+  .card > p:first-child {
+    margin-top: 0;
+  }
+  .card > p + p {
+    margin-top: 2rem;
+  }
+  .question {
+    display: block;
+    margin-bottom: 0.6rem;
   }
 ---
 
 <div class="card">
-    To be updated soon.
+    <p>
+        My research aims to build floating-point analysis tools for programs as developers write them, and to make these tools accessible to developers. To get there, I focus on three questions:
+    </p>
+    <p>
+        <b class="question">How can we verify the floating-point features developers actually use?</b>
+        Most floating-point verification tools target small numerical kernels or specialized languages. Instead, I am actively integrating floating-point verification techniques into a deductive verifier for a general-purpose language, Stainless for Scala.
+        Guided by our large-scale study of how developers use floating-point in practice (<a href="/publications.html#oopsla-26">OOPSLA '26</a>), we added bit-precise floating-point reasoning to Stainless (<a href="/publications.html#tacas-26">TACAS '26</a>),
+        and I am now working on a <a href="/publications.html#preprint">scalable roundoff error analysis for branching programs</a>, where the real-valued and floating-point executions can take different paths.
+    </p>
+    <p>
+        <b class="question">How do we know floating-point analysis tools work on real-world code?</b>
+        Verification tools are mostly evaluated on small, hand-picked examples, which says little about how they perform on real-world code.
+        We mined GitHub for floating-point code and extracted a dataset of 10 million floating-point functions (<a href="/publications.html#oopsla-26">OOPSLA '26</a>).
+        We used this dataset to build benchmarks for evaluating our integration of bit-precise floating-point reasoning into Stainless (<a href="/publications.html#tacas-26">TACAS'26</a>) and our <a href="/publications.html#preprint">ongoing work on roundoff analysis of branching programs</a>.
+        <a href="/cv.html#thesis-misha-magnusson">A BSc thesis I supervised</a> extends this approach to automatically extract benchmarks from Rust code.
+    </p>
+    <p>
+        <b class="question">How can developers actually use these tools?</b>
+        Deductive verifiers can provide strong guarantees but remain hard to use for non-experts. I am studying where users struggle and how tools can better support them,
+        through a <a href="/cv.html#thesis-arvid-loren">supervised MSc thesis</a> and an ongoing follow-up project, and I plan to extend this to floating-point analysis tools.
+    </p>
 </div>

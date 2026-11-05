@@ -42,7 +42,10 @@ body {
   background-color: var(--color-background);
 }
 
-p { text-align: justify; }
+p {
+  text-align: justify;
+  line-height: 1.35;
+}
 
 ::selection {
   background: var(--color-select);
@@ -100,10 +103,13 @@ header {
 .header-row {
   font-size: var(--fs-400);
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  row-gap: 0.5rem;
 }
 
 .header-row .title {
+  white-space: nowrap;
   font-weight: 500;
   font-size: 2rem;
   color: black;
@@ -122,6 +128,7 @@ nav {
 nav a {
   color: grey;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 nav .active {
@@ -162,6 +169,10 @@ footer {
   background: #fff;
   padding: 1rem 3rem 1rem;
   box-shadow: 1px 1px .25rem rgba(0,0,0,.1);
+}
+
+:target {
+  background-color: color-mix(in srgb, var(--color-select) 20%, white);
 }
 
 /* ===========================

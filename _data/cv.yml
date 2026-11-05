@@ -48,7 +48,7 @@ work:
   - position: Software Intern
     company: IOxOS Technologies
     date: July-August 2019
-    description: Developpement of a graphical interface in Java and a client-server architecture in C to drive a data acquisition system.
+    description: Development of a graphical interface in Java and a client-server architecture in C to drive a data acquisition system.
     logo: ioxos-favicon.png
 
 theses:
@@ -137,6 +137,8 @@ teaching:
           - 2020
 
 service: 
+  - venue : TACAS'27
+    title: Subreviewer
   - venue: ICSE'27
     title: Shadow PC
   - venue: PLDI'26

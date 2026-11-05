@@ -101,9 +101,13 @@ inlineCSS: >-
 {% for year in site.data.publications %}
   <div class="year">{{ year[0] }}</div>
   {% for pub in year[1] %}
-      <div class="card">
+      <div class="card" id="{{ pub.acronym | slugify }}">
         <div style="margin-bottom: 0.3rem;">
-          <a class="conf-badge" href="{{ pub.venue_link }}" target="_blank" rel="noopener noreferrer">{{ pub.acronym }}</a>
+          {% if pub.venue_link %}
+            <a class="conf-badge" href="{{ pub.venue_link }}" target="_blank" rel="noopener noreferrer">{{ pub.acronym }}</a>
+          {% else %}
+            <span class="conf-badge">{{ pub.acronym }}</span>
+          {% endif %}
           <span class="pub-title">{{ pub.title }}</span>
         </div>
           {% assign formatted_authors = "" %}

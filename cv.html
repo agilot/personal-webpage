@@ -72,7 +72,12 @@ inlineCSS: >-
       {% for pub in year[1] %}
         <span class="series">[{{ pub.acronym }}]</span>
         <cite class="title">
-          <a href="{% if pub.DOI %} {{ pub.DOI }} {% else %} {{ pub.PDF }} {% endif %}" target="_blank" rel="noopener noreferrer">{{ pub.title }}</a>
+          {% assign pub_link = pub.DOI | default: pub.PDF %}
+          {% if pub_link %}
+            <a href="{{ pub_link }}" target="_blank" rel="noopener noreferrer">{{ pub.title }}</a>
+          {% else %}
+            {{ pub.title }}
+          {% endif %}
         </cite>
           <div class="metadata">
             {% assign formatted_authors = "" %}
@@ -184,7 +189,7 @@ inlineCSS: >-
                 {{ degree.category | capitalize }} theses:
                 <ul>
                   {% for thesis in degree.list %}
-                  <li>
+                  <li id="thesis-{{ thesis.student | slugify: "latin" }}">
                     {{ thesis.student }} - <i>{{ thesis.title }}</i>
                     {% if thesis.cosupervisor %}
                       (co-supervised with

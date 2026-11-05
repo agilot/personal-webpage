@@ -1,4 +1,10 @@
 2026:
+  - title: Scalable and Actionable Roundoff Error Analysis for Highly Branching Floating-Point Programs
+    acronym: Preprint
+    authors:
+      - name: Andrea Gilot
+      - name: Neea Rusch
+      - name: Eva Darulova
   - title: "Floating-Point Usage on GitHub: a Large-Scale Study of Statically Typed Languages"
     venue: Proceedings of the ACM on Programming Languages (PACMPL), OOPSLA, 2026
     acronym: OOPSLA'26
