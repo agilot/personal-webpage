@@ -85,6 +85,10 @@ guestlectures:
 - institution: Uppsala University
   logo: uppsala-favicon.png
   lectures:
+  - title: "Abstract Interpretation"
+    code: 1DT034
+    course: Programming Theory
+    date: 2026
   - title: "Formal Methods"
     code: 1DL251
     course: Software Engineering and Project Management
